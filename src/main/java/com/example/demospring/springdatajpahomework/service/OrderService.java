@@ -11,7 +11,7 @@ public interface OrderService {
 
     Order getByOrderId(Integer orderId);
 
-    Order getByCustomerId(Integer customerId);
+    List<Order> getByCustomerId(Integer customerId);
 
     Order updateStatue(StatusEnum statusEnum, Integer orderId);
 }

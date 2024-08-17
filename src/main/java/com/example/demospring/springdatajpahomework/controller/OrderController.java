@@ -40,8 +40,8 @@ public class OrderController {
     }
 
     @GetMapping("/customer/{customerId}")
-    public ResponseEntity<APIResponse<Order>> getByCustomerId (@PathVariable Integer customerId){
-        APIResponse<Order> apiResponse = APIResponse.<Order>builder()
+    public ResponseEntity<APIResponse<List<Order>>> getByCustomerId (@PathVariable Integer customerId){
+        APIResponse<List<Order>> apiResponse = APIResponse.<List<Order>>builder()
                 .status(HttpStatus.OK)
                 .message("Get customer id is successfully!")
                 .payload(orderService.getByCustomerId(customerId))

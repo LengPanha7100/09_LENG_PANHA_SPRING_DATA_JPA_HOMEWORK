@@ -65,14 +65,19 @@ public class OrderServiceImp implements OrderService {
     }
 
     @Override
-    public Order getByCustomerId(Integer customerId) {
-
-        return null;
+    public List<Order> getByCustomerId(Integer customerId) {
+        Customer customer = customerRepository.findById(customerId).orElseThrow(
+                () -> new CustomNotfoundException("Not Found!")
+        );
+        return orderRepository.findAllByCustomer(customer);
     }
 
     @Override
     public Order updateStatue(StatusEnum statusEnum, Integer orderId) {
-
-        return null;
+        Order order = orderRepository.findById(orderId).orElseThrow(
+                () -> new CustomNotfoundException("Not Found!")
+        );
+        order.setStatusEnum(statusEnum);
+        return orderRepository.save(order);
     }
 }
