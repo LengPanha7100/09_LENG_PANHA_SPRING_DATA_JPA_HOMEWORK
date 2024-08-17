@@ -27,9 +27,9 @@ public class Order {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "customer_Id")
+    @JsonIgnore
     private Customer customer;
 
     @OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
-    @JsonIgnore
     private List<ProductOrder> productOrders;
 }

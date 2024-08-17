@@ -11,6 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@ToString
 @Table(schema = "homework")
 public class Customer {
     @Id
